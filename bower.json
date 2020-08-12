@@ -1,0 +1,17 @@
+{
+  "name": "hn_oe28_news",
+  "description": "",
+  "main": "",
+  "authors": [
+    "dinhtienn <dinhtiennguyen.1202@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/dinhtienn/hn_oe28_news",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
