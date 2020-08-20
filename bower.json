@@ -13,5 +13,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "osru-template-assets": "https://github.com/dinhtienn/osru-template-assets.git",
+    "skote-template-assets": "https://github.com/dinhtienn/skote-template-assets.git"
+  }
 }
