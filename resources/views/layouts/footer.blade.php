@@ -6,9 +6,9 @@
                     <div class="footer-box">
                         <div class="footer-logo">
                             <img
-                                    src="{{ asset(config('images_path.logo_white')) }}"
-                                    class="img-responsive"
-                                    alt="logo"
+                                src="{{ asset(config('images_path.logo_white')) }}"
+                                class="img-responsive"
+                                alt="logo"
                             >
                         </div>
                         <p>{{ config('company.info.short_description') }}</p>
@@ -40,8 +40,8 @@
                                 <div class="tweet-text">
                                     {{ trans('app.source') }}
                                     <a
-                                            target="_blank"
-                                            href="{{ config('company.social.instagram') }}"
+                                        target="_blank"
+                                        href="{{ config('company.social.instagram') }}"
                                     >
                                         @dinhtienn
                                     </a>
@@ -63,14 +63,14 @@
                         <h3 class="widget-title title-white">{{ trans('app.latest_post') }}</h3>
                         @foreach($latestPostsFooter as $post)
                             <div class="media latest_post">
-                                <a class="media-left" href="#">
+                                <a class="media-left" href="{{ route('post.detail', ['slug' => $post->slug]) }}">
                                     <img src="{{ $post->thumbnail }}"
                                          class="media-object"
-                                         alt="">
+                                         alt="{{ $post->slug }}">
                                 </a>
                                 <div class="media-body">
                                     <h6 class="media-heading two-lines">
-                                        <a href="#">
+                                        <a href="{{ route('post.detail', ['slug' => $post->slug]) }}">
                                             {{ $post->title }}
                                         </a>
                                     </h6>
@@ -80,6 +80,10 @@
                                             <time>
                                                 {{ $post->created_at->diffForHumans() }}
                                             </time>
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                            {{ views($post)->count() }}
                                         </span>
                                     </div>
                                 </div>
