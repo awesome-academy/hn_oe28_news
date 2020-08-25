@@ -11,4 +11,15 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
     {
         return Category::class;
     }
+
+    public function getCategories()
+    {
+        return $this->model
+            ->where('parent_id', null)
+            ->with('children')
+            ->with(['posts' => function ($query) {
+                $query->orderBy('created_at', 'desc');
+            }])
+            ->get();
+    }
 }
