@@ -54,7 +54,13 @@
                     <div class="footer-box">
                         <h3 class="widget-title title-white">{{ trans('app.need_help') }}</h3>
                         <ul class="footer-cat">
-                            <li><a href="#">{{ trans('app.feedback') }}</a></li>
+                            <li>
+                                <a href="{{ config('company.feedback_route') }}"
+                                   target="_blank"
+                                >
+                                    {{ trans('app.feedback') }}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -62,7 +68,7 @@
                     <div class="footer-box">
                         @if (isset($latestPostsFooter))
                             <h3 class="widget-title title-white">{{ trans('app.latest_post') }}</h3>
-                            @foreach ($latestPostsFooter as $post)
+                            @foreach($latestPostsFooter as $post)
                                 <div class="media latest_post">
                                     <a class="media-left" href="{{ route('post.detail', ['slug' => $post->slug]) }}">
                                         <img src="{{ $post->thumbnail }}"

@@ -1,18 +1,6 @@
 @extends('layouts.frontend_master')
 
 @section('main-content')
-    <div class="parallax page_header"
-         data-parallax-bg-image="{{ asset('bower_components/osru-template-assets/assets/images/header-bg.jpg') }}"
-         data-parallax-direction="left">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h3>{{ $post->title }}</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class=" page-content">
         <div class="container">
             <div class="row">
@@ -21,11 +9,11 @@
                         <div class="post_details stickydetails">
                             <header class="details-header">
                                 <div class="post-cat">
-                                    {{-- Demo data tags --}}
-                                    <a href="#">Fashion</a>
-                                    <a href="#">Travel</a>
-                                    <a href="#">Lifestyle</a>
-                                    {{-- Demo data tags --}}
+                                    @foreach ($post->tags as $tag)
+                                        <a href="{{ route('tag.detail', ['name' => $tag->name]) }}">
+                                            {{ $tag->name }}
+                                        </a>
+                                    @endforeach
                                 </div>
                                 <h2>{{ $post->title }}</h2>
                                 <div class="element-block">
