@@ -163,7 +163,11 @@
                     @endforeach
                 @endif
 
-                <li><a href="#">{{ trans('app.contact') }}</a></li>
+                <li>
+                    <a href="{{ route('contact') }}">
+                        {{ trans('app.contact') }}
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -173,8 +177,18 @@
         <div class="widget">
             <h3 class="widget-title">{{ trans('app.popular') }}</h3>
             <ul class="link">
-                <li><a href="#">{{ trans('app.contact') }}</a></li>
-                <li><a href="#">{{ trans('app.register_writer') }}</a></li>
+                <li>
+                    <a href="{{ config('company.feedback_route') }}"
+                        target="_blank"
+                    >
+                        {{ trans('app.contact') }}
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        {{ trans('app.register_writer') }}
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="latest_post_widget">
