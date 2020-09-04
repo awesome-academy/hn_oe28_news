@@ -116,9 +116,9 @@
                             @foreach ($categories as $category)
                                 <li @if (count($category->children) > 0) class="dropdown" @endif>
                                     <a href="{{ route('category.detail', ['slug' => $category->slug]) }}"
-                                       @if (count($category->children) > 0)
-                                       class="dropdown-toggle"
-                                            @endif
+                                        @if (count($category->children) > 0)
+                                            class="dropdown-toggle"
+                                        @endif
                                     >
                                         {{ $category->name }}
                                     </a>
@@ -141,10 +141,10 @@
                     @foreach($categories as $category)
                         <li @if (count($category->children) > 0) class="dropdown" @endif>
                             <a
-                                    href="{{ route('category.detail', ['slug' => $category->slug]) }}"
-                                    @if (count($category->children) > 0)
+                                href="{{ route('category.detail', ['slug' => $category->slug]) }}"
+                                @if (count($category->children) > 0)
                                     class="dropdown-toggle"
-                                    @endif
+                                @endif
                             >
                                 {{ $category->name }}
                             </a>
@@ -179,16 +179,18 @@
             <ul class="link">
                 <li>
                     <a href="{{ config('company.feedback_route') }}"
-                        target="_blank"
+                       target="_blank"
                     >
                         {{ trans('app.contact') }}
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        {{ trans('app.register_writer') }}
-                    </a>
-                </li>
+                @if (auth()->user()->role->name === 'user')
+                    <li>
+                        <a href="{{ route('writer-requests.create') }}">
+                            {{ trans('app.register_writer') }}
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
         <div class="latest_post_widget">
