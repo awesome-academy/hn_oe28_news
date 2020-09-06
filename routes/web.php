@@ -36,6 +36,28 @@ Route::group(['namespace' => 'Frontend'], function () {
     ]);
 });
 
+Route::group([
+    'namespace' => 'Admin',
+    'prefix' => '/admin',
+    'middleware' => 'check_if_admin'
+], function () {
+    Route::get('dashboard', 'DashboardController')->name('dashboard');
+
+    Route::get('/writer-requests/waiting', 'WriterController@index')->name('writer-requests.index');
+
+    Route::get('/writer-requests/rejected', 'WriterController@rejected')->name('writer-requests.rejected');
+
+    Route::get('/writer-requests/accept', 'WriterController@accept')->name('writer-requests.accept');
+
+    Route::get('/writer-requests/reject', 'WriterController@reject')->name('writer-requests.reject');
+
+    Route::get('users/user', 'UserController@user')->name('users.user');
+
+    Route::get('users/writer', 'UserController@writer')->name('users.writer');
+
+    Route::get('users/admin', 'UserController@admin')->name('users.admin');
+});
+
 Route::group(['namespace' => 'Api'], function () {
     Route::get('/check-user', 'UserApiController@checkUser')->name('api.check.user');
 
