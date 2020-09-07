@@ -150,6 +150,11 @@ return [
         'phone' => 'Phone',
         'description' => 'Description',
         'salary' => 'Salary',
+        'name' => 'Name',
+        'title' => 'Title',
+        'content' => 'Content',
+        'category_id' => 'Category',
+        'thumbnail' => 'Thumbnail',
     ],
 
 ];
