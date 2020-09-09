@@ -13,8 +13,8 @@
                         <a href="{{ route('post.detail', ['slug' => $hotPosts[0]->slug]) }}">
                             <figure>
                                 <img src="{{ $hotPosts[0]->thumbnail }}"
-                                     class="img-responsive"
-                                     alt="{{ $hotPosts[0]->slug }}">
+                                    class="img-responsive"
+                                    alt="{{ $hotPosts[0]->slug }}">
                             </figure>
                         </a>
                         <div class="mas-text">
@@ -32,7 +32,8 @@
                                 <p class="two-lines">
                                     {{ $hotPosts[0]->content }}
                                 </p>
-                                <a href="{{ route('post.detail', ['slug' => $hotPosts[0]->slug]) }}" class="read-more">
+                                <a href="{{ route('post.detail', ['slug' => $hotPosts[0]->slug]) }}"
+                                    class="read-more">
                                     {{ trans('app.read_more') }} &#8702;
                                 </a>
                             </div>
@@ -46,8 +47,8 @@
                                 <a href="{{ route('post.detail', ['slug' => $hotPosts[1]->slug]) }}">
                                     <figure>
                                         <img src="{{ $hotPosts[1]->thumbnail }}"
-                                             class="img-responsive"
-                                             alt="{{ $hotPosts[1]->slug }}">
+                                            class="img-responsive"
+                                            alt="{{ $hotPosts[1]->slug }}">
                                     </figure>
                                 </a>
                                 <div class="mas-text">
@@ -65,7 +66,8 @@
                                         <p class="two-lines">
                                             {{ $hotPosts[1]->content }}
                                         </p>
-                                        <a href="{{ route('post.detail', ['slug' => $hotPosts[1]->slug]) }}" class="read-more">
+                                        <a href="{{ route('post.detail', ['slug' => $hotPosts[1]->slug]) }}"
+                                            class="read-more">
                                             {{ trans('app.read_more') }} &#8702;
                                         </a>
                                     </div>
@@ -82,8 +84,8 @@
                                             <a href="{{ route('post.detail', ['slug' => $post->slug]) }}">
                                                 <figure>
                                                     <img src="{{ $post->thumbnail }}"
-                                                         class="img-responsive"
-                                                         alt="{{ $post->slug }}">
+                                                        class="img-responsive"
+                                                        alt="{{ $post->slug }}">
                                                 </figure>
                                             </a>
                                             <div class="mas-text">
@@ -99,7 +101,7 @@
                                                 </h4>
                                                 <div class="mas-details">
                                                     <p class="two-lines">
-                                                        {{ $post->content }}
+                                                        {!! $post->content !!}
                                                     </p>
                                                     <a href="{{ route('post.detail', ['slug' => $post->slug]) }}" class="read-more">
                                                         {{ trans('app.read_more') }} &#8702;
@@ -119,8 +121,8 @@
                                             <a href="{{ route('post.detail', ['slug' => $post->slug]) }}">
                                                 <figure>
                                                     <img src="{{ $post->thumbnail }}"
-                                                         class="img-responsive"
-                                                         alt="{{ $post->slug }}">
+                                                        class="img-responsive"
+                                                        alt="{{ $post->slug }}">
                                                 </figure>
                                             </a>
                                             <div class="mas-text">
@@ -136,7 +138,7 @@
                                                 </h4>
                                                 <div class="mas-details">
                                                     <p class="two-lines">
-                                                        {{ $post->content }}
+                                                        {!! $post->content !!}
                                                     </p>
                                                     <a href="{{ route('post.detail', ['slug' => $post->slug]) }}" class="read-more">
                                                         {{ trans('app.read_more') }} &#8702;
@@ -170,7 +172,7 @@
                                     <span class="comment-link">
                                         <a href="{{ route('post.detail', ['slug' => $post->slug]) }}">
                                             <i class="fa fa-comment-o" aria-hidden="true"></i>
-                                            9 {{ trans('app.comments') }}
+                                            {{ $post->commentCount }} {{ trans('app.comments') }}
                                         </a>
                                     </span>
                                     <span>
@@ -191,12 +193,10 @@
                     @foreach ($latestPosts as $post)
                         <div class="media meida-md">
                             <div class="media-left">
-                                <a href="
-                                    {{ route('post.detail', ['slug' => $post->slug]) }}
-                                        ">
+                                <a href="{{ route('post.detail', ['slug' => $post->slug]) }}">
                                     <img src="{{ $post->thumbnail }}"
-                                         class="media-object"
-                                         alt="{{ $post->slug }}">
+                                        class="media-object thumbnail-home"
+                                        alt="{{ $post->slug }}">
                                 </a>
                             </div>
                             <div class="media-body">
@@ -208,9 +208,7 @@
                                         </a>
                                     </div>
                                     <h3 class="media-heading two-lines">
-                                        <a href="
-                                            {{ route('post.detail', ['slug' => $post->slug]) }}
-                                                ">
+                                        <a href="{{ route('post.detail', ['slug' => $post->slug]) }}">
                                             {{ $post->title }}
                                         </a>
                                     </h3>
@@ -220,11 +218,9 @@
                                             <time>{{ $post->created_at->diffForHumans() }}</time>
                                         </span>
                                         <span class="comment-link">
-                                            <a href="
-                                                {{ route('post.detail', ['slug' => $post->slug]) }}
-                                                    ">
+                                            <a href="{{ route('post.detail', ['slug' => $post->slug]) }}">
                                                 <i class="fa fa-comment-o" aria-hidden="true"></i>
-                                                9 {{ trans('app.comments') }}
+                                                {{ $post->commentCount }} {{ trans('app.comments') }}
                                             </a>
                                         </span>
                                         <span>
@@ -233,13 +229,12 @@
                                         </span>
                                     </div>
                                 </div>
-                                <p class="two-lines">
+                                <div class="two-lines content-home">
                                     {!! $post->content !!}
-                                </p>
+                                </div>
                                 <div class="element-block">
-                                    <a href="
-                                        {{ route('post.detail', ['slug' => $post->slug]) }}
-                                            " class="btn link-btn btn-outline btn-rounded">
+                                    <a href="{{ route('post.detail', ['slug' => $post->slug]) }}"
+                                        class="btn link-btn btn-outline btn-rounded">
                                         {{ trans('app.reading') }} &#8702;
                                     </a>
                                 </div>
@@ -257,10 +252,11 @@
                         </div>
                         @foreach ($popularPosts as $post)
                             <div class="media latest_post">
-                                <a class="media-left" href="{{ route('post.detail', ['slug' => $post->slug]) }}">
+                                <a class="media-left"
+                                    href="{{ route('post.detail', ['slug' => $post->slug]) }}">
                                     <img src="{{ $post->thumbnail }}"
-                                         class="media-object"
-                                         alt="{{ $post->slug }}">
+                                        class="media-object"
+                                        alt="{{ $post->slug }}">
                                 </a>
                                 <div class="media-body">
                                     <h6 class="media-heading two-lines">
@@ -271,7 +267,9 @@
                                     <div class="entry-meta">
                                         <span class="entry-date">
                                             <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                                            <time>{{ $post->created_at->diffForHumans() }}</time>
+                                            <time>
+                                                {{ $post->created_at->diffForHumans() }}
+                                            </time>
                                         </span>
                                         <span>
                                             <i class="fa fa-eye" aria-hidden="true"></i>
