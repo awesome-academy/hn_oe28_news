@@ -42,8 +42,8 @@
                                 </div>
                                 <div class="col-5 align-self-end">
                                     <img src="{{ asset('/bower_components/skote-template-assets/assets/images/profile-img.png') }}"
-                                         alt="cover"
-                                         class="img-fluid">
+                                        alt="cover"
+                                        class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -51,9 +51,9 @@
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="avatar-md profile-user-wid mb-4">
-                                        <img src="{{ asset('/bower_components/skote-template-assets/assets/images/users/avatar-2.jpg') }}"
-                                             alt="avatar"
-                                             class="img-thumbnail rounded-circle">
+                                        <img src="{{ asset(config('company.default_user_avatar')) }}"
+                                            alt="avatar"
+                                            class="img-thumbnail rounded-circle">
                                     </div>
                                     <h5 class="font-size-15 text-truncate">
                                         {{ auth()->user()->username }}
@@ -62,7 +62,6 @@
 
                                 <div class="col-sm-8">
                                     <div class="pt-4">
-
                                         <div class="row">
                                             <div class="col-6">
                                                 <h5 class="font-size-15">

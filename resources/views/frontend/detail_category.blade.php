@@ -9,10 +9,11 @@
                         @foreach ($posts as $post)
                             <article class="grid_post">
                                 <figure>
-                                    <a href="{{ route('post.detail', ['slug' => $post->slug]) }}" class="grid_image">
+                                    <a href="{{ route('post.detail', ['slug' => $post->slug]) }}"
+                                        class="grid_image">
                                         <img src="{{ $post->thumbnail }}"
-                                             class="img-responsive"
-                                             alt="{{ $post->slug }}">
+                                            class="img-responsive"
+                                            alt="{{ $post->slug }}">
                                     </a>
                                     <figcaption>
                                         <div class="post-cat">
@@ -23,12 +24,14 @@
                                         <div class="entry-meta">
                                             <span class="entry-date">
                                                 <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                                                <time>{{ $post->created_at->diffForHumans() }}</time>
+                                                <time>
+                                                    {{ $post->created_at->diffForHumans() }}
+                                                </time>
                                             </span>
                                             <span class="comment-link">
                                                 <a href="#">
                                                     <i class="fa fa-comment-o" aria-hidden="true"></i>
-                                                    9 {{ trans('app.comments') }}
+                                                    {{ $post->commentCount }} {{ trans('app.comments') }}
                                                 </a>
                                             </span>
                                             <span>
@@ -43,7 +46,7 @@
                                         </h4>
                                         <div class="element-block">
                                             <a href="{{ route('post.detail', ['slug' => $post->slug]) }}"
-                                               class="btn link-btn btn-outline btn-rounded">
+                                                class="btn link-btn btn-outline btn-rounded">
                                                 {{ trans('app.reading') }} &#8702;
                                             </a>
                                         </div>
