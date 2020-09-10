@@ -1,17 +1,6 @@
 @extends('layouts.frontend_master')
 
 @section('main-content')
-    <div class="parallax page_header" data-parallax-bg-image="{{ asset('bower_components/osru-template-assets/assets/images/header-bg.jpg') }}"
-         data-parallax-direction="left">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h3>{{ $tag->name }}</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="page-content">
         <div class="container">
             <div class="row">
@@ -20,10 +9,11 @@
                         @foreach ($posts as $post)
                             <article class="grid_post">
                                 <figure>
-                                    <a href="{{ route('post.detail', ['slug' => $post->slug]) }}" class="grid_image">
+                                    <a href="{{ route('post.detail', ['slug' => $post->slug]) }}"
+                                        class="grid_image">
                                         <img src="{{ $post->thumbnail }}"
-                                             class="img-responsive"
-                                             alt="{{ $post->slug }}">
+                                            class="img-responsive"
+                                            alt="{{ $post->slug }}">
                                     </a>
                                     <figcaption>
                                         <div class="post-cat">
@@ -39,7 +29,7 @@
                                             <span class="comment-link">
                                                 <a href="#">
                                                     <i class="fa fa-comment-o" aria-hidden="true"></i>
-                                                    9 {{ trans('app.comments') }}
+                                                    {{ $post->commentCount }} {{ trans('app.comments') }}
                                                 </a>
                                             </span>
                                         </div>
@@ -50,7 +40,7 @@
                                         </h4>
                                         <div class="element-block">
                                             <a href="{{ route('post.detail', ['slug' => $post->slug]) }}"
-                                               class="btn link-btn btn-outline btn-rounded">
+                                                class="btn link-btn btn-outline btn-rounded">
                                                 {{ trans('app.reading') }} &#8702;
                                             </a>
                                         </div>

@@ -31,21 +31,19 @@
                                 <div class="col-sm-6">
                                     <article class="grid_post">
                                         <figure>
-                                            <a href="{{ route('post.detail', ['slug' => $category->posts[0]->slug]) }}" class="grid_image">
+                                            <a href="{{ route('post.detail', ['slug' => $category->posts[0]->slug]) }}"
+                                                class="grid_image">
                                                 <img src="{{ $category->posts[0]->thumbnail }}"
-                                                     class="img-responsive"
-                                                     alt="{{ $category->posts[0]->slug }}">
+                                                    class="img-responsive"
+                                                    alt="{{ $category->posts[0]->slug }}">
                                             </a>
                                             <figcaption>
                                                 <div class="entry-meta">
                                                 <span class="entry-date">
                                                     <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                                                    <time>{{ $category->posts[0]->created_at->diffForHumans() }}</time>
-                                                </span>
-                                                    <span class="comment-link">
-                                                    <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
-                                                        9 {{ trans('app.comments') }}
-                                                    </a>
+                                                    <time>
+                                                        {{ $category->posts[0]->created_at->diffForHumans() }}
+                                                    </time>
                                                 </span>
                                                     <span>
                                                     <i class="fa fa-eye" aria-hidden="true"></i>
@@ -69,8 +67,8 @@
                                         <div class="media latest_post">
                                             <a class="media-left" href="{{ route('post.detail', ['slug' => $post->slug]) }}">
                                                 <img src="{{ $post->thumbnail }}"
-                                                     class="media-object"
-                                                     alt="{{ $post->slug }}">
+                                                    class="media-object"
+                                                    alt="{{ $post->slug }}">
                                             </a>
                                             <div class="media-body">
                                                 <h6 class="media-heading two-lines">
@@ -79,13 +77,7 @@
                                                     </a>
                                                 </h6>
                                                 <div class="entry-meta">
-                                            <span class="comment-link">
-                                                <a href="#">
-                                                    <i class="fa fa-comment-o" aria-hidden="true"></i>
-                                                    9 {{ trans('app.comments') }}
-                                                </a>
-                                            </span>
-                                                    <span>
+                                            <span>
                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                                 {{ views($post)->count() }}
                                             </span>
