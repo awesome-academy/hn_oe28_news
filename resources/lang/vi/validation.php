@@ -15,9 +15,16 @@ return [
     'lte' => [
         'numeric' => ':attribute phải nhỏ hơn hoặc bằng :value.',
     ],
+    'unique' => ':attribute đã được sử dụng.',
+    'mimes' => ':attribute phải là tệp có dạng: :values.',
     'attributes' => [
         'phone' => 'Số điện thoại',
         'description' => 'Mô tả',
         'salary' => 'Lương',
+        'name' => 'Tên',
+        'title' => 'Tiêu đề',
+        'content' => 'Nội dung',
+        'category_id' => 'Danh mục',
+        'thumbnail' => 'Hình đại diện',
     ],
 ];
