@@ -5,10 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
+use Illuminate\Database\Eloquent\Builder;
 
 class Post extends Model implements Viewable
 {
     use InteractsWithViews;
+
+    protected $fillable = [
+        'title',
+        'user_id',
+        'category_id',
+        'slug',
+        'content',
+        'admin_id',
+        'status',
+        'thumbnail',
+    ];
 
     const STATUS = [
         0 => 'waiting',
@@ -16,6 +28,13 @@ class Post extends Model implements Viewable
         2 => 'commented',
         3 => 'accepted',
     ];
+
+    protected static function booted()
+    {
+        static::addGlobalScope('status', function (Builder $builder) {
+            $builder->where('status', config('company.post_status.accepted'));
+        });
+    }
 
     public function tags()
     {
@@ -40,6 +59,16 @@ class Post extends Model implements Viewable
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function likedUsers()
+    {
+        return $this->belongsToMany(
+            User::class,
+            'likes',
+            'post_id',
+            'user_id'
+        );
     }
 
     public function admin()
