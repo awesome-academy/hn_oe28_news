@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class WriterRequest extends FormRequest
+class CategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class WriterRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::check();
+        return true;
     }
 
     /**
@@ -25,10 +25,7 @@ class WriterRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone' => 'bail|required|numeric',
-            'description' => 'bail|required|min:50',
-            'salary'  =>  'bail|required|gte:15000|lte:35000',
-            'cv_path' => 'bail|required|mimes:pdf'
+            'name' => 'bail|required|unique:categories',
         ];
     }
 }

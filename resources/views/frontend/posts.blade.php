@@ -58,11 +58,11 @@
                                     <i class="fa fa-facebook"></i>
                                 </a>
                                 <a href="{{ config('company.social.twitter') }}"
-                                   class="boxed_icon twitter">
+                                    class="boxed_icon twitter">
                                     <i class="fa fa-twitter"></i>
                                 </a>
                                 <a href="{{ config('company.social.google') }}"
-                                   class="boxed_icon google-plus">
+                                    class="boxed_icon google-plus">
                                     <i class="fa fa-google-plus"></i>
                                 </a>
                                 <a href="{{ config('company.social.pinterest') }}"
@@ -171,8 +171,8 @@
                                             href="{{ route('post.detail', ['slug' => $post->slug]) }}">
                                             <figure>
                                                 <img class="img-responsive"
-                                                    src="{{ $post->thumbnail }}"
-                                                    alt="{{ $post->slug }}">
+                                                     src="{{ $post->thumbnail }}"
+                                                     alt="{{ $post->slug }}">
                                             </figure>
                                         </a>
                                         <h4 class="two-lines">
@@ -253,9 +253,12 @@
                                                     <p>
                                                         {{ $childComment->content }}
                                                     </p>
-                                                    @if (auth()->user()->role->name === 'admin')
+                                                    @if (
+                                                        auth()->check() &&
+                                                        auth()->user()->role->name === 'admin'
+                                                    )
                                                         <a href="{{ route('comment.hide', ['id' => $childComment->id]) }}"
-                                                            class="btn link-btn btn-rounded">
+                                                           class="btn link-btn btn-rounded">
                                                             {{ trans('app.hide') }}
                                                         </a>
                                                     @endif
@@ -299,20 +302,20 @@
                                     {{ trans('app.cancel_edit') }}
                                 </button>
                                 <input type="hidden"
-                                   value="{{ $postId }}"
-                                   name="post_id">
+                                    value="{{ $postId }}"
+                                    name="post_id">
                                 <input type="hidden"
-                                   value="{{ $post->slug }}"
-                                   name="slug">
+                                    value="{{ $post->slug }}"
+                                    name="slug">
                                 <input id="input-parent"
-                                   type="hidden"
-                                   name="parent_id"
-                                   value="{{ null }}">
+                                    type="hidden"
+                                    name="parent_id"
+                                    value="{{ null }}">
                                 <div class="form-group">
                                     <textarea class="form-control"
-                                          name="content"
-                                          id="textarea"
-                                          rows="5"></textarea>
+                                        name="content"
+                                        id="textarea"
+                                        rows="5"></textarea>
                                 </div>
                                 <button type="submit" class="btn link-btn">
                                     {{ trans('app.post_comment') }} ⇾

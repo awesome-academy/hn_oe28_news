@@ -32,8 +32,7 @@
                                 <p class="two-lines">
                                     {{ $hotPosts[0]->content }}
                                 </p>
-                                <a href="{{ route('post.detail', ['slug' => $hotPosts[0]->slug]) }}"
-                                    class="read-more">
+                                <a href="{{ route('post.detail', ['slug' => $hotPosts[0]->slug]) }}" class="read-more">
                                     {{ trans('app.read_more') }} &#8702;
                                 </a>
                             </div>
@@ -101,9 +100,10 @@
                                                 </h4>
                                                 <div class="mas-details">
                                                     <p class="two-lines">
-                                                        {!! $post->content !!}
+                                                        {{ $post->content }}
                                                     </p>
-                                                    <a href="{{ route('post.detail', ['slug' => $post->slug]) }}" class="read-more">
+                                                    <a href="{{ route('post.detail', ['slug' => $post->slug]) }}"
+                                                        class="read-more">
                                                         {{ trans('app.read_more') }} &#8702;
                                                     </a>
                                                 </div>
@@ -138,9 +138,10 @@
                                                 </h4>
                                                 <div class="mas-details">
                                                     <p class="two-lines">
-                                                        {!! $post->content !!}
+                                                        {{ $post->content }}
                                                     </p>
-                                                    <a href="{{ route('post.detail', ['slug' => $post->slug]) }}" class="read-more">
+                                                    <a href="{{ route('post.detail', ['slug' => $post->slug]) }}"
+                                                        class="read-more">
                                                         {{ trans('app.read_more') }} &#8702;
                                                     </a>
                                                 </div>
@@ -230,7 +231,7 @@
                                     </div>
                                 </div>
                                 <div class="two-lines content-home">
-                                    {!! $post->content !!}
+                                    {{ $post->content }}
                                 </div>
                                 <div class="element-block">
                                     <a href="{{ route('post.detail', ['slug' => $post->slug]) }}"
@@ -252,8 +253,7 @@
                         </div>
                         @foreach ($popularPosts as $post)
                             <div class="media latest_post">
-                                <a class="media-left"
-                                    href="{{ route('post.detail', ['slug' => $post->slug]) }}">
+                                <a class="media-left" href="{{ route('post.detail', ['slug' => $post->slug]) }}">
                                     <img src="{{ $post->thumbnail }}"
                                         class="media-object"
                                         alt="{{ $post->slug }}">
@@ -289,22 +289,26 @@
 
                         <ul>
                             <li class="li-facebook">
-                                <a href="{{ config('company.social.facebook') }}" target="_blank">
+                                <a href="{{ config('company.social.facebook') }}"
+                                    target="_blank">
                                     <i class="fa fa-facebook"></i> Facebook
                                 </a>
                             </li>
                             <li class="li-twitter">
-                                <a href="{{ config('company.social.twitter') }}" target="_blank">
+                                <a href="{{ config('company.social.twitter') }}"
+                                   target="_blank">
                                     <i class="fa fa-twitter"></i> Twitter
                                 </a>
                             </li>
                             <li class="li-google-plus">
-                                <a href="{{ config('company.social.google') }}" target="_blank">
+                                <a href="{{ config('company.social.google') }}"
+                                    target="_blank">
                                     <i class="fa fa-google-plus"></i> Google +
                                 </a>
                             </li>
                             <li class="li-pinterest">
-                                <a href="{{ config('company.social.pinterest') }}" target="_blank">
+                                <a href="{{ config('company.social.pinterest') }}"
+                                    target="_blank">
                                     <i class="fa fa-pinterest-p"></i> Pinterest
                                 </a>
                             </li>
